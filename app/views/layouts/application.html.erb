@@ -25,41 +25,53 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li>
-                  <a class="nav-link text-light" herf="/users/:user_id">
+                  <a class="nav-link text-light" href="/users/:id">
                     <i class="fas fa-home"></i>
                     Home
                   </a>
                 </li>
                 <li>
-                  <a class="nav-link text-light" herf="/users">
+                  <a class="nav-link text-light" href="/users">
                     <i class="fas fa-users"></i>
                     Users
                   </a>
                 </li>
                 <li>
-                  <a class="nav-link text-light" herf="/books">
+                  <a class="nav-link text-light" href="/books">
                     <i class="fas fa-book-open"></i>
                     Books
                   </a>
                 </li>
                 <li>
-                  <a class="nav-link text-light" rel="nofollow" data-method="delete" herf="/users/sign_out">
+                  <a class="nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out">
                     <i class="fas fa-sign-out-alt"></i>
                     Log out
                   </a>
                 </li> 
               <% else %>
                 <li>
-                  <%= link_to "Home", root_path %>
+                  <a class="nav-link text-light" href="/">
+                    <i class="fas fa-home"></i>
+                    Home
+                  </a>
                 </li>
                 <li>
-                  <%= link_to "About", about_path %>
+                  <a class="nav-link text-light" href="/home/about">
+                    <i class="fas fa-link"></i>
+                    About
+                  </a>
                 </li>
                 <li>
-                  <%= link_to "Sign up", new_user_registration_path %>
+                  <a class="nav-link text-light" href="/users/sign_up">
+                    <i class="fas fa-user-plus"></i>
+                    Sign up
+                  </a>
                 </li>
                 <li>
-                  <%= link_to "Log in", new_user_session_path %>
+                  <a class="nav-link text-light" href="/users/sign_in">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Log in
+                  </a>
                 </li>
               <% end %>
             </ul>
@@ -68,7 +80,11 @@
       </nav>
      
     </header>
+    
+    <main>
+      <p id="notice"></p>
     <%= yield %>
+    </main>
     
     <footer>
       <div class="container mt-5">
