@@ -14,10 +14,11 @@
           </td>
           <td><%= link_to @idbook.title, book_path(@idbook.id) %></td>
           <td><%= @idbook.body %></td>
-          <td><%= link_to 'Edit', edit_book_path(@idbook.id), :class => "btn btn-sm btn-success" %></td>
-          <td><%= link_to 'Destroy', destroy_book_path(@idbook.id),
+          <% if @idbook.user == current_user %>
+            <td><%= link_to 'Edit', edit_book_path(@idbook.id), :class => "btn btn-sm btn-success" %></td>
+            <td><%= link_to 'Destroy', destroy_book_path(@idbook.id),
               method: :delete, 'data-confirm' => "本当に消しますか？", :class => "btn btn-sm btn-danger" %></td>
-          <td></td>
+          <% end %>
         </tbody>
       </table>
     </div>
