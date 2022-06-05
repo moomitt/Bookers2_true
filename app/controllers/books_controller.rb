@@ -14,6 +14,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
     else
       @books = Book.all
+      @user =  current_user
       render :index
     end
   end
@@ -27,7 +28,7 @@ class BooksController < ApplicationController
   def edit
     @idbook = Book.find(params[:id])
     if current_user.id != @idbook.user_id
-      redirect_to user_path(current_user.id)
+      redirect_to books_path
     end
   end
   
